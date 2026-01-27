@@ -15,6 +15,7 @@ import Footer from "@/layouts/Footer";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import ContactUs from "@/components/ContactUs";
 import Head from "next/head";
+import Logo from "@/components/logo";
 
 const play = Merriweather({
   subsets: ["latin"],
@@ -75,6 +76,7 @@ export default function Home() {
         <About />
         <Services />
         <WhyUs />
+        <Logo />
         <PackageGrids />
         <UpcomingEvents />
         <ContactUs />

@@ -1,14 +1,4 @@
- /** @type {import('next').NextConfig}
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ["images.unsplash.com", "media.istockphoto.com", "utfs.io", "k6e1njmrbw.ufs.sh"]
-  },
-};
-
-export default nextConfig;*/
-
-/** @type {import('next').NextConfig}*/
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -19,15 +9,19 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "7llynlmlgfrzlkfk.public.blob.vercel-storage.com", // ADD THIS for your gallery
+      },
+      {
+        protocol: "https",
         hostname: "utfs.io",
       },
-    {
-      protocol: "https",
-      hostname: "*.ufs.sh",
-    },
+      {
+        protocol: "https",
+        hostname: "*.ufs.sh",
+      },
     ],
+    formats: ['image/webp'], // ADD THIS for better performance
   },
 };
 
 export default nextConfig;
-
