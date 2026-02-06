@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 
+
 const About = () => {
   return (
     <section
@@ -57,6 +58,9 @@ const About = () => {
           </div>
         </div>
       </div>
+
+
+
     </section>
   );
 };

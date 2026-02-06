@@ -2,6 +2,7 @@ import AboutHero from '@/components/about/AboutHero'
 import FounderCard from '@/components/about/FounderCard'
 import Intro from '@/components/about/Intro'
 import OurHistory from '@/components/about/OurHistory'
+import AdvisoryBoard from '@/components/about/AdvisoryBoard' 
 import Footer from '@/layouts/Footer'
 import Navbar from '@/layouts/Navbar'
 import { Merriweather } from 'next/font/google'
@@ -38,6 +39,7 @@ const About = () => {
         <Intro />
         <OurHistory />
         <FounderCard />
+        <AdvisoryBoard /> 
         <Footer />
       </main>
     </>

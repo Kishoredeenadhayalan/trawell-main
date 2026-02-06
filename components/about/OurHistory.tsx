@@ -22,7 +22,7 @@ const OurHistory = () => {
                 Trawell India  is a firm founded by Dharani Gunasekaran
                 in 2019. It was founded with a vision to take people close to
                 History, Temples, Culture, Nature and make them feel the bliss
-                of our country. It was accomplished this for 2+ years and
+                of our country. It was accomplished this for 3+ years and
                 remains committed to sharing, adapting, and evolving into the
                 most dedicated and impactful professional it can be.
                 <br />
