@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
+import { title } from "process";
 
 const Navbar = () => {
   const NAVBAR_DATA = [
@@ -20,6 +21,7 @@ const Navbar = () => {
     { title: "Tours", link: "/#services" },
     { title: "Gallery", link: "/gallery" },
     { title: "Contact Us", link: "/#contact" },
+    { title: "Upcoming Events",link:"/UpcomingEvents"},
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
