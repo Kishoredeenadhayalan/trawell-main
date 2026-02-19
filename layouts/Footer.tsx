@@ -1,115 +1,67 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Github,
-  Instagram,
-  LinkedinIcon,
-  Mail,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-white">
-      <div className="mx-auto max-w-[1440px] px-[12px] pt-[72px] pb-[32px] md:px-[20px] lg:px-[5vw]">
-        <div className="flex flex-col items-stretch justify-start">
-          <div className="w-full border-b p-2 md:p-4">
-            <div className="flex flex-col items-center justify-between md:items-start lg:flex-row">
-              <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src={"/images/TraWell_Primary - multicolour.png"}
-                  width={1080}
-                  height={1920}
-                  alt="trawell-india-logo"
-                  className="w-28 md:w-32 lg:w-36"
-                />
-              </Link>
-              <div className="flex w-full flex-col items-center justify-between md:flex-row lg:justify-end">
-                <div className="mb-4 flex items-center justify-start lg:ml-[64px]">
-                  {/* <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://twitter.com"
-                    className="mx-[2px] p-3 transition-all duration-300 hover:text-app-red"
-                  >
-                    <Twitter aria-label="Twitter" />
-                  </Link> */}
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.instagram.com/trawell_india_"
-                    className="mx-[2px] p-3 transition-all duration-300 hover:text-app-red"
-                  >
-                    <Instagram aria-label="Instagram" />
-                  </Link>
-                  {/* <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.youtube.com/"
-                    className="mx-[2px] p-3 transition-all duration-300 hover:text-app-red"
-                  >
-                    <Youtube aria-label="You-Tube" />
-                  </Link> */}
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="mailto:trawellindia2022@gmail.com"
-                    className="mx-[2px] p-3 transition-all duration-300 hover:text-app-red"
-                  >
-                    <Mail aria-label="Mail" />
-                  </Link>
-                </div>
-              </div>
+    <footer className="bg-[#f4e8d0]">
+      <div className="bg-gradient-to-r from-[#f4e8d0]/20 to-[#f4e8d0] py-8 px-6 relative"> {/* Sand gradient */}
+        <div className="mx-auto max-w-6xl flex items-start justify-between gap-12 text-[#333] text-sm">
+          
+          {/* LOGO + EXPLORE */}
+          <div className="flex items-start gap-4 w-1/4 flex-shrink-0">
+            <Image
+              src={"/images/TraWell_Primary - multicolour.png"}
+              width={1080}
+              height={1920}
+              alt="trawell-india-logo"
+              className="w-16 mt-1"
+            />
+            <div className="flex flex-col gap-1 pt-1">
+              <span className="text-xs font-bold uppercase tracking-wider opacity-80">EXPLORE</span>
+              <Link href="/" className="hover:text-[#666] py-0.5 block">Home</Link>
+              <Link href="/about" className="hover:text-[#666] py-0.5 block">About</Link>
+              <Link href="/gallery" className="hover:text-[#666] py-0.5 block">Gallery</Link>
             </div>
           </div>
-          <div className="w-full p-2 md:p-4">
-            <div className="flex flex-col items-center justify-start md:flex-row md:justify-between">
-              <div className="mb-4 flex flex-col items-stretch justify-center text-center md:flex-row">
-                {/* <Link
-                  href="/terms-and-conditions"
-                  className="py-2 text-[14px] text-[#777a85] md:mr-[24px]"
-                >
-                  Terms and Conditions
-                </Link>
-                <Link
-                  href="/privacy-policy"
-                  className="py-2 text-[14px] text-[#777a85] md:mr-[24px]"
-                >
-                  Privacy Policy
-                </Link> */}
-                {/**<p className="text-center text-[12px] text-[#777a85]">
-                  Crafted by{" "}
-                  <Link
-                    href="https://github.com/Jayanth-Srinivasan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-500"
-                  >
-                    Codelance Devs
-                  </Link>
-                </p>*/}
-              </div>
-              <p className="mb-4 text-[12px] text-[#777a85]">
-                Copyright &copy; {new Date().getFullYear()} Trawell India
-              </p>
+
+          {/* TRAVEL SERVICES */}
+          <div className="flex flex-col gap-1 w-1/4 pt-1">
+            <span className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2">TRAVEL SERVICES</span>
+            <div className="hover:text-[#666] py-0.5">India Tours</div>
+            <div className="hover:text-[#666] py-0.5">Custom Packages</div>
+            <div className="hover:text-[#666] py-0.5">Flight Bookings</div>
+            <div className="hover:text-[#666] py-0.5">24/7 Support</div>
+          </div>
+
+          {/* LEGAL */}
+          <div className="flex flex-col gap-1 w-1/4 pt-1">
+            <span className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2">LEGAL</span>
+            <Link href="/terms" className="hover:text-[#666] py-0.5 block">Terms & Conditions</Link>
+            <Link href="/privacy" className="hover:text-[#666] py-0.5 block">Privacy Policy</Link>
+          </div>
+
+          {/* SOCIAL + CONTACT + FOLLOW US */}
+          <div className="flex flex-col items-end gap-3 w-1/4 pt-1">
+            <div className="flex items-center gap-2 mb-2">
+              <Link href="https://www.instagram.com/trawell_india_" className="p-1.5 hover:scale-110">
+                <Instagram size={18} className="text-[#333]" />
+              </Link>
+              <Link href="mailto:trawellindia2022@gmail.com" className="p-1.5 hover:scale-110">
+                <Mail size={18} className="text-[#333]" />
+              </Link>
             </div>
+            <div className="text-xs text-right opacity-80">contact@trawell.in</div>
+            <div className="text-xs text-right opacity-80">Coimbatore: 964105</div>
+            <div className="text-lg font-bold mt-1">Follow us</div>
           </div>
         </div>
-        {/* <div>
-          <p className="text-center text-[12px] text-[#777a85]">
-            Crafted by{" "}
-            <Link
-              href="https://github.com/Jayanth-Srinivasan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-500"
-            >
-              Codelance Devs
-            </Link>
-          </p>
-        </div> */}
+      </div>
+
+      {/* COPYRIGHT */}
+      <div className="py-3 px-4 text-center text-xs text-[#666]">
+        Copyright © 2026 Trawell India
       </div>
     </footer>
   );
