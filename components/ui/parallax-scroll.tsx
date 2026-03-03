@@ -47,13 +47,12 @@ export const ParallaxScroll = ({
               key={"grid-1" + idx}
             >
               <Image
-                priority
-                unoptimized
                 src={el}
-                className="h-auto w-full object-contain object-left-top rounded-lg gap-10 !m-0 !p-0"
+                className="h-auto w-full object-contain object-left-top rounded-lg gap-10 !m-0 !p-0 shadow-md"
                 height="400"
                 width="400"
                 alt="thumbnail"
+                loading="lazy"
               />
             </motion.div>
           ))}
@@ -62,13 +61,12 @@ export const ParallaxScroll = ({
           {secondPart.map((el, idx) => (
             <motion.div style={{ y: translateSecond }} key={"grid-2" + idx}>
               <Image
-                priority
-                unoptimized
                 src={el}
-                className="h-auto w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                className="h-auto w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0 shadow-md"
                 height="400"
                 width="400"
                 alt="thumbnail"
+                loading="lazy"
               />
             </motion.div>
           ))}
@@ -77,13 +75,12 @@ export const ParallaxScroll = ({
           {thirdPart.map((el, idx) => (
             <motion.div style={{ y: translateThird }} key={"grid-3" + idx}>
               <Image
-                priority
-                unoptimized
                 src={el}
-                className="h-auto w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                className="h-auto w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0 shadow-md"
                 height="400"
                 width="400"
                 alt="thumbnail"
+                loading="lazy"
               />
             </motion.div>
           ))}

@@ -44,7 +44,7 @@ const HeritagePage = () => {
       </div>
       <div className="w-full py-12 md:px-32 px-8 flex flex-col gap-4 justify-between items-center">
         <h1>
-          <span className="text-2xl md:text-3xl lg:text-5xl font-semibold text-deepblue tracking-wide mb-8">
+          <span className="text-2xl md:text-3xl lg:text-5xl font-semibold text-brand-dark tracking-wide mb-8">
             About Hertiage Walks
           </span>
         </h1>
@@ -67,7 +67,7 @@ const HeritagePage = () => {
       </div>
       <div className="w-full py-12 md:px-32 px-8 flex flex-col gap-4 justify-between items-center">
         <h1>
-          <span className="text-2xl md:text-3xl lg:text-5xl font-semibold text-deepblue tracking-wide mb-8">
+          <span className="text-2xl md:text-3xl lg:text-5xl font-semibold text-brand-dark tracking-wide mb-8">
             Upcoming Events
           </span>
         </h1>

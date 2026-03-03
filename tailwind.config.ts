@@ -53,10 +53,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        terra: "#A25626", // Terracotta Red
-        deepblue: "#046582", // Deep Blue
-        marigold: "#FFAD05", // Marigold
-        lightbeige: "#F0E9D2", // Light Beige
+        "brand-dark": "#475569", // Medium Slate Blue
+        "brand-accent": "#B76E79", // Rose Gold
+        "brand-warm": "#FF8E53", // Sunset Orange
+        "brand-soft": "#F8F9FA", // Pearl White
       },
       borderRadius: {
         lg: "var(--radius)",

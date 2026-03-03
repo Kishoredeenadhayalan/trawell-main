@@ -38,11 +38,11 @@ const ContactForm = () => {
 
   const handleValuesChange =
     (key: keyof typeof values) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setValues((prev) => {
-        return { ...prev, [key]: e.target.value };
-      });
-    };
+      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setValues((prev) => {
+          return { ...prev, [key]: e.target.value };
+        });
+      };
 
   const handleCategorySelect = (val: string) => {
     setValues((prev) => {
@@ -116,7 +116,7 @@ const ContactForm = () => {
             href={"/"}
             className="mx-auto flex items-center gap-2 text-base font-medium text-[#4c4f58] "
           >
-            <MoveLeft className="w-6 h-6 text-marigold " /> Back
+            <MoveLeft className="w-6 h-6 text-brand-accent " /> Back
           </Link>
           <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
             <h2 className=" select-text text-center text-[32px] font-medium text-[#23262f] md:text-[34px] lg:text-[40px]">
@@ -199,7 +199,7 @@ const ContactForm = () => {
             </div>
             <Button
               type="submit"
-              className="h-12 w-full rounded-lg text-black bg-marigold py-5 px-16 transition-all duration-300 hover:bg-marigold/80 "
+              className="h-12 w-full rounded-lg text-black bg-brand-accent py-5 px-16 transition-all duration-300 hover:bg-brand-accent/80 "
             >
               {loading ? "Loading..." : "Request"}
             </Button>

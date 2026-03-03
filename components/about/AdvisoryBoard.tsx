@@ -35,6 +35,7 @@ const advisoryMembers: AdvisoryMember[] = [
   {
     name: "Sandeep",
     role: "Marketing Specialist",
+    image:"https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/cc1cf894-652b-450e-8356-21e41dfe1f77.JPG",
     bio: "Digital marketing expert driving tourism brand engagement through innovative cultural campaigns.",
   },
 ];

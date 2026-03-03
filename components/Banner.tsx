@@ -7,7 +7,7 @@ const Banner = () => {
 
   return (
     <div
-      className="bg-deepblue text-lightbeige w-full mt-12 py-12 md:px-32 px-8 flex flex-col md:flex-row md:gap-0 gap-4 justify-between items-center"
+      className="bg-brand-dark text-brand-soft w-full mt-12 py-12 md:px-32 px-8 flex flex-col md:flex-row md:gap-0 gap-4 justify-between items-center"
       id="contact"
     >
       <div className="mx-auto max-w-5xl">
@@ -20,7 +20,7 @@ const Banner = () => {
 
       <Button
         onClick={() => router.push("/contactForm")}
-        className="bg-marigold text-black  px-6 py-2 rounded hover:bg-marigold/80 transition-colors duration-300 ease-in-out"
+        className="bg-brand-accent text-black  px-6 py-2 rounded hover:bg-brand-accent/80 transition-colors duration-300 ease-in-out"
       >
         Contact Us
       </Button>

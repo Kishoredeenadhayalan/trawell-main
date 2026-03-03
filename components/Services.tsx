@@ -35,12 +35,8 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="relative py-[60px] md:py-[80px] overflow-hidden"
-      style={{
-        backgroundColor: '#f4e8d0'
-      }}
+      className="relative py-[60px] md:py-[80px] overflow-hidden bg-brand-dark shadow-sm"
     >
-      <div className="absolute inset-0 bg-black/10"></div>
       <div className="relative mx-auto max-w-screen-xl px-4 py-6 sm:py-12 lg:py-16">
         {/* Heading animation */}
         <motion.div
@@ -50,14 +46,14 @@ const Services = () => {
           transition={{ duration: 0.9, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#D4A300]  tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white tracking-wide">
             Our Services
           </h2>
           <div className="flex justify-center gap-2 mb-2">
-            <div className="w-24 h-[3px] bg-[#D4A300] rounded-full"></div>
-            <div className="w-8 h-[3px] bg-[#8C1E12] rounded-full"></div>
+            <div className="w-24 h-[3px] bg-brand-accent rounded-full"></div>
+            <div className="w-8 h-[3px] bg-brand-warm rounded-full"></div>
           </div>
-          <p className="text-lg text-[#4B2C1C] leading-relaxed font-light">
+          <p className="text-lg text-slate-300 leading-relaxed font-light">
             Discover enriching heritage sites and thrilling adventures with us!
             We specialize in curated tours for schools and corporate groups —
             tailored to educate, inspire, and create lifelong memories.

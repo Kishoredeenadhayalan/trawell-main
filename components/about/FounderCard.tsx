@@ -6,7 +6,7 @@ const FounderCard = () => {
     <section id="about" className="bg-white text-primary">
       <div className="w-full flex flex-col md:flex-col lg:flex-row lg:max-w-7xl lg:mx-auto gap-12 p-4 md:px-12 py-[40px] md:py-[80px] ">
         <div className="flex flex-col gap-4 justify-center lg:w-1/2">
-          <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-deepblue">
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-brand-dark">
             Dharani Gunasekaran
           </h1>
           <p className="text-md text-slate-800 font-semibold">Founder & CEO</p>

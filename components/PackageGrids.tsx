@@ -1,7 +1,123 @@
-"use client";
 import React, { useState } from "react";
 import { MapPin, ArrowRight, Clock, Users } from "lucide-react";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import Image from "next/image";
 
+const PackageCard = ({ card, handleCardClick, hoveredCard, setHoveredCard }: any) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-150, 150], [15, -15]);
+  const rotateY = useTransform(x, [-150, 150], [-15, 15]);
+
+  const springConfig = { damping: 20, stiffness: 200 };
+  const springRotateX = useSpring(rotateX, springConfig);
+  const springRotateY = useSpring(rotateY, springConfig);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    x.set(event.clientX - centerX);
+    y.set(event.clientY - centerY);
+    setHoveredCard(card.link);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    setHoveredCard(null);
+  };
+
+  return (
+    <div style={{ perspective: "1500px" }}>
+      <motion.div
+        onClick={() => handleCardClick(card.link)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX: springRotateX,
+          rotateY: springRotateY,
+          transformStyle: "preserve-3d",
+          boxShadow:
+            hoveredCard === card.link
+              ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              : "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        }}
+        className="group cursor-pointer relative overflow-hidden rounded-2xl bg-white transition-all duration-500 border border-slate-200"
+      >
+        {/* Image */}
+        <div className="relative h-72 overflow-hidden">
+          <Image
+            src={card.image}
+            alt={card.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+          {/* Badges */}
+          <span className="absolute top-4 left-4 px-3 py-1 bg-brand-accent text-white text-xs font-bold rounded-full shadow border border-brand-accent">
+            {card.category}
+          </span>
+          <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full">
+            <Clock className="w-3 h-3" /> {card.duration}
+          </div>
+
+          {/* Content */}
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <h3 className="text-2xl font-bold text-white mb-2">{card.title}</h3>
+
+            {/* Description */}
+            <p
+              className={`text-white/90 text-sm mb-3 transition-all duration-300 ${hoveredCard === card.link ? "opacity-100 max-h-20" : "opacity-0 max-h-0 overflow-hidden"}`}
+            >
+              {card.description}
+            </p>
+
+            {/* Highlights */}
+            <div className="flex flex-wrap gap-2 mb-3">
+              {card.highlights.map((highlight: string, idx: number) => (
+                <span key={idx} className="px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-md">
+                  {highlight}
+                </span>
+              ))}
+            </div>
+
+            {/* Explore button */}
+            <div
+              className={`flex items-center gap-2 text-brand-accent font-semibold text-sm transition-all duration-300 ${hoveredCard === card.link ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
+            >
+              Explore Trail
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Info Bar */}
+        <div className="p-4 bg-slate-50 border-t border-slate-200">
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-2 text-slate-700">
+              <MapPin className="w-4 h-4 text-brand-accent drop-shadow-sm" />
+              <span className="font-medium">{card.highlights[0]}</span>
+            </div>
+            <div className="flex items-center gap-1 text-slate-500">
+              <Users className="w-4 h-4" />
+              <span className="text-xs">Group Tours</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hover border */}
+        <div
+          className={`absolute inset-0 rounded-2xl border-2 border-brand-accent transition-opacity duration-300 pointer-events-none ${hoveredCard === card.link ? "opacity-100" : "opacity-0"}`}
+        />
+      </motion.div>
+    </div>
+  );
+};
 const PackageGridsRedesign = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -101,28 +217,18 @@ const PackageGridsRedesign = () => {
   };
 
   return (
-    <section
-      className="py-16 md:py-24 relative"
-      style={{
-        backgroundColor: "#f4e8d0",
-        backgroundImage: `
-          repeating-linear-gradient(0deg, rgba(139, 119, 101, 0.03) 0px, transparent 1px, transparent 2px, rgba(139, 119, 101, 0.03) 3px),
-          repeating-linear-gradient(90deg, rgba(139, 119, 101, 0.03) 0px, transparent 1px, transparent 2px, rgba(139, 119, 101, 0.03) 3px),
-          linear-gradient(to bottom, #f4e8d0, #e8dcc8, #f4e8d0)
-        `
-      }}
-    >
+    <section className="py-16 md:py-24 relative bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-amber-700/20 text-amber-900 rounded-full text-sm font-semibold mb-4 tracking-wide border border-amber-700/30">
+          <span className="inline-block px-4 py-2 bg-slate-200 text-slate-800 rounded-full text-sm font-semibold mb-4 tracking-wide border border-slate-300 shadow-sm">
             EXPLORE HERITAGE
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-amber-950 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-6 drop-shadow-sm">
             Frequently Explored Trails
           </h2>
-          <p className="text-lg md:text-xl text-amber-900/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Discover why our tailored travel experiences are the perfect choice for your next adventure
           </p>
         </div>
@@ -133,11 +239,10 @@ const PackageGridsRedesign = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
-                selectedCategory === category
-                  ? "bg-amber-700 text-white shadow-lg scale-105"
-                  : "bg-amber-100/50 text-amber-900 hover:bg-amber-200/70 border border-amber-700/30"
-              }`}
+              className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${selectedCategory === category
+                ? "bg-brand-dark text-white shadow-lg scale-105"
+                : "bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md"
+                }`}
             >
               {category}
             </button>
@@ -147,98 +252,13 @@ const PackageGridsRedesign = () => {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCards.map((card) => (
-            <div
+            <PackageCard
               key={card.link}
-              onClick={() => handleCardClick(card.link)}
-              onMouseEnter={() => setHoveredCard(card.link)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className="group cursor-pointer relative overflow-hidden rounded-2xl bg-amber-50/80 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-amber-700/20"
-              style={{
-                boxShadow:
-                  hoveredCard === card.link
-                    ? "0 20px 40px rgba(120, 53, 15, 0.3)"
-                    : "0 10px 20px rgba(120, 53, 15, 0.15)",
-              }}
-            >
-              {/* Image */}
-              <div className="relative h-72 overflow-hidden">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
-                {/* Badges */}
-                <span className="absolute top-4 left-4 px-3 py-1 bg-amber-700 text-white text-xs font-bold rounded-full shadow border border-amber-600">
-                  {card.category}
-                </span>
-                <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full">
-                  <Clock className="w-3 h-3" /> {card.duration}
-                </div>
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{card.title}</h3>
-
-                  {/* Description */}
-                  <p
-                    className={`text-white/90 text-sm mb-3 transition-all duration-300 ${
-                      hoveredCard === card.link
-                        ? "opacity-100 max-h-20"
-                        : "opacity-0 max-h-0 overflow-hidden"
-                    }`}
-                  >
-                    {card.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {card.highlights.map((highlight, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-md"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Explore button */}
-                  <div
-                    className={`flex items-center gap-2 text-amber-300 font-semibold text-sm transition-all duration-300 ${
-                      hoveredCard === card.link
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-4"
-                    }`}
-                  >
-                    Explore Trail
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Info Bar */}
-              <div className="p-4 bg-gradient-to-r from-amber-100/60 to-amber-200/60 border-t border-amber-700/20">
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-2 text-amber-900">
-                    <MapPin className="w-4 h-4 text-amber-700" />
-                    <span className="font-medium">{card.highlights[0]}</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-amber-800">
-                    <Users className="w-4 h-4" />
-                    <span className="text-xs">Group Tours</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Hover border */}
-              <div
-                className={`absolute inset-0 rounded-2xl border-2 border-amber-700 transition-opacity duration-300 pointer-events-none ${
-                  hoveredCard === card.link ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </div>
+              card={card}
+              handleCardClick={handleCardClick}
+              hoveredCard={hoveredCard}
+              setHoveredCard={setHoveredCard}
+            />
           ))}
         </div>
       </div>

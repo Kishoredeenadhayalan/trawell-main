@@ -14,14 +14,14 @@ import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import { title } from "process";
 
-const Navbar = () => {
+const Navbar = ({ darkText = false }: { darkText?: boolean }) => {
   const NAVBAR_DATA = [
     { title: "Home", link: "/#" },
     { title: "About", link: "/about" },
     { title: "Tours", link: "/#services" },
     { title: "Gallery", link: "/gallery" },
     { title: "Contact Us", link: "/#contact" },
-    { title: "Upcoming Events",link:"/UpcomingEvents"},
+    { title: "Upcoming Events", link: "/UpcomingEvents" },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,9 +40,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${
-        isScrolled ? "bg-white text-black" : "bg-transparent text-white"
-      } z-50 w-full h-[4rem] transition-all duration-300 flex items-center justify-between fixed top-0 p-4 md:p-12`}
+      className={`${isScrolled || darkText ? "bg-white text-black shadow-sm" : "bg-transparent text-white"
+        } z-50 w-full h-[4rem] transition-all duration-300 flex items-center justify-between fixed top-0 p-4 md:p-12`}
     >
       {/* LOGO CHANGE ON SCROLL */}
       <Link href={"/#"}>
@@ -50,7 +49,7 @@ const Navbar = () => {
           unoptimized
           priority
           src={
-            isScrolled
+            isScrolled || darkText
               ? "/images/TraWell_Primary - multicolour.png" // logo with black/colored text
               : "/images/TraWell_Primary - multicolour white text.png" // white logo
           }
@@ -82,7 +81,7 @@ const Navbar = () => {
         <Sheet open={open} onOpenChange={handleToggle}>
           <SheetTrigger aria-label="Menu">
             {/* ICON CHANGE ON SCROLL */}
-            <MenuIcon className={isScrolled ? "text-black" : "text-white"} />
+            <MenuIcon className={isScrolled || darkText ? "text-black" : "text-white"} />
           </SheetTrigger>
 
           <SheetContent side={"top"} className="bg-[#0d1117] text-white">

@@ -16,31 +16,31 @@ export default function InstitutionsPage() {
   ];
 
   return (
-    <section className="w-full bg-background py-6 md:py-8">
+    <section className="w-full bg-white py-6 md:py-8">
       {/* Title */}
-      <h2 className="text-center text-lg md:text-xl font-medium text-foreground mb-4">
+      <h2 className="text-center text-lg md:text-xl font-medium text-slate-700 mb-4">
         Trusted By Institutions
       </h2>
 
       {/* Marquee */}
-      <div className="relative w-full overflow-hidden"> 
-  <div className="flex w-max items-center animate-marquee"> 
-    {[...logos, ...logos].map((logo, index) => (
-      <div
-        key={index}
-        className="mx-6 md:mx-8 flex items-center justify-center opacity-80 hover:opacity-100 transition"
-      >
-        <Image
-          src={logo.src}
-          alt={logo.alt}
-          width={110}
-          height={60}
-          className="object-contain"
-        />
+      <div className="relative w-full overflow-hidden">
+        <div className="flex w-max items-center animate-marquee">
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={index}
+              className="mx-6 md:mx-8 flex items-center justify-center opacity-80 hover:opacity-100 transition"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={110}
+                height={60}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
     </section>
   );

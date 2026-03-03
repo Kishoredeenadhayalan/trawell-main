@@ -9,7 +9,7 @@ const ContactUs = () => {
     <section id="contact" className="bg-white">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
         <div className=" mx-auto text-left">
-          <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-deepblue">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-brand-dark">
             Visit Us
           </h2>
           <p className="mt-4 text-lg text-gray-500">
@@ -64,7 +64,7 @@ const ContactUs = () => {
               <div className="mt-4 px-4">
                 <Button
                   onClick={() => router.push("/contactForm")}
-                  className="bg-marigold text-black  px-6 py-2 rounded hover:bg-marigold/80 transition-colors duration-300 ease-in-out"
+                  className="bg-brand-accent text-black  px-6 py-2 rounded hover:bg-brand-accent/80 transition-colors duration-300 ease-in-out"
                 >
                   Enquire Now
                 </Button>

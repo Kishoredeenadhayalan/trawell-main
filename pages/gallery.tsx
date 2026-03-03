@@ -16,7 +16,7 @@ const metadata = {
 // Dynamically import ParallaxScroll with SSR disabled for better performance
 const DynamicParallaxScroll = dynamic(
   () => import('@/components/ui/parallax-scroll').then(mod => mod.ParallaxScroll),
-  { 
+  {
     loading: () => (
       <div className="w-full px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -71,33 +71,33 @@ const GalleryPage = () => {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:url" content={metadata.url} />
         <meta property="og:image" content={metadata.image} />
-        
+
         {/* DNS prefetch and preconnect for faster image loading */}
         <link rel="preconnect" href="https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com" />
-        
+
         {/* Preload the first few critical images for LCP optimization */}
-        <link 
-          rel="preload" 
-          as="image" 
+        <link
+          rel="preload"
+          as="image"
           href="https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/Gal-1.webp"
           fetchPriority="high"
         />
-        <link 
-          rel="preload" 
-          as="image" 
+        <link
+          rel="preload"
+          as="image"
           href="https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/Gal-2.webp"
         />
-        <link 
-          rel="preload" 
-          as="image" 
+        <link
+          rel="preload"
+          as="image"
           href="https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/Gal-3.webp"
         />
       </Head>
-      <Navbar />
-      <section className="flex pt-12 w-full flex-col gap-8 h-full">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-center">
-          Gallery
+      <Navbar darkText={true} />
+      <section className="flex pt-32 pb-12 w-full flex-col gap-8 h-full bg-slate-50 min-h-screen">
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-center text-brand-dark drop-shadow-sm">
+          Our Gallery
         </h3>
         <DynamicParallaxScroll images={images} />
       </section>
