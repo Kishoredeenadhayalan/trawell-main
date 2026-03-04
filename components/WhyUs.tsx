@@ -15,7 +15,7 @@ function WhyUs() {
     title: string;
     description: string;
   }
-  [];
+
   const WhyUs: WhyUsData[] = [
     {
       Svg: Headset,
@@ -35,25 +35,8 @@ function WhyUs() {
       description:
         "Our travel options are designed to provide the best experiences at competitive prices.",
     },
-    {
-      Svg: Handshake,
-      title: "Safety and Trust",
-      description:
-        "We prioritize your safety and trust, adhering to the highest standards of security and transparency.",
-    },
-    {
-      Svg: Smartphone,
-      title: "Easy to Book",
-      description:
-        "Book your next adventure effortlessly with our user-friendly online platform.",
-    },
-    {
-      Svg: Cpu,
-      title: "Technology Powered",
-      description:
-        "Our advanced technology ensures a smooth and innovative travel experience from start to finish.",
-    },
   ];
+
   return (
     <section className="py-[50px] md:py-[50px] bg-white" id="WhyUs">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
