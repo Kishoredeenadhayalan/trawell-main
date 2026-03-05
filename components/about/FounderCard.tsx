@@ -7,6 +7,7 @@ interface TeamMember {
   description: string;
   imageSrc: string;
   alt: string;
+  imageClass?: string;
 }
 
 const FounderCard = () => {
@@ -24,14 +25,14 @@ const FounderCard = () => {
       title: "Chief Storyteller",
       description:
         "Priyankaa Prasad holds a Master's degree in Ancient History and Archaeology from the University of Madras. She has worked extensively as a storyteller, translating history into engaging narratives that make the past accessible and meaningful. With a growing focus on food history and traditional art forms especially painting, her work is rooted in research, curiosity, and cultural exploration. Priyankaa has a natural ability to connect with children, presenting historical content through stories that spark imagination and understanding. Having completed her schooling and higher education in Mumbai, she later moved to Chennai to deepen her engagement with South Indian history and heritage. Through Trawell India, she brings together research, storytelling, and travel to create experiences that are immersive, educational, and deeply rooted in culture.",
-      imageSrc: "https://via.placeholder.com/500x600?text=Priyankaa+Prasad", 
+      imageSrc: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/4fad83bc-8201-4bed-b600-f7fe13a123d7.JPG",
       alt: "Priyanka Rajendra Prasad",
     },
   ];
 
   return (
     <section id="about" className="bg-white text-primary">
-      <div className="w-full max-w-7xl mx-auto gap-16 p-4 md:px-12 py-[40px] md:py-[80px]">
+      <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 p-4 md:px-12 py-[40px] md:py-[80px]">
         {teamMembers.map((member, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex flex-col gap-6 lg:w-1/2 order-2 lg:order-1">
@@ -39,7 +40,7 @@ const FounderCard = () => {
                 {member.name}
               </h1>
               <p className="text-md text-slate-800 font-semibold">{member.title}</p>
-              <div 
+              <div
                 className="text-gray-600 text-justify"
                 dangerouslySetInnerHTML={{ __html: member.description }}
               />
@@ -52,7 +53,7 @@ const FounderCard = () => {
                 alt={member.alt}
                 width={500}
                 height={600}
-                className="rounded-lg w-full h-96 lg:h-auto object-cover"
+                className={`rounded-lg w-full h-96 lg:h-[450px] xl:h-[500px] object-cover ${member.imageClass || "object-center"}`}
               />
             </div>
           </div>

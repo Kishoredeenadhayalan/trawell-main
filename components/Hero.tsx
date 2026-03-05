@@ -55,7 +55,7 @@ const Hero = () => {
         <div className="container mx-auto px-6 lg:px-12 xl:px-24 mb-32">
 
           {/* ✨ Typewriter heading 1 */}
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider leading-tight whitespace-nowrap">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider leading-tight whitespace-break-spaces sm:whitespace-nowrap break-words">
             {typewriterText.split("").map((char, index) => (
               <motion.span
                 key={index}
@@ -73,7 +73,7 @@ const Hero = () => {
           </h1>
 
           {/* ✨ Typewriter heading 2 */}
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider mb-6 whitespace-nowrap">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider mb-6 whitespace-break-spaces sm:whitespace-nowrap break-words">
             {typewriterText2.split("").map((char, index) => (
               <motion.span
                 key={index}
