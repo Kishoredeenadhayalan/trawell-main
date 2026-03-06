@@ -31,7 +31,7 @@ const FounderCard = () => {
   ];
 
   return (
-    <section id="about" className="bg-white text-primary">
+    <section id="about" className="bg-brand-soft text-primary">
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 p-4 md:px-12 py-[40px] md:py-[80px]">
         {teamMembers.map((member, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-12 items-center">

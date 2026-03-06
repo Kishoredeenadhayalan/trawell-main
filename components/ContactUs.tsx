@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const ContactUs = () => {
   const router = useRouter();
   return (
-    <section id="contact" className="bg-white">
+    <section id="contact" className="bg-brand-soft">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
         <div className=" mx-auto text-left">
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-brand-dark">

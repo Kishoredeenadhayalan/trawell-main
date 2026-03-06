@@ -7,21 +7,21 @@ const services = [
     title: "Trails & Tours",
     description:
       "Discover India's beauty and history through curated trails and tours, guided by experts.",
-    imgUrl: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/trails.webp",
+    imgUrl: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/edu.webp",
     link: "/trails-and-tours",
   },
   {
     title: "Heritage Walks",
     description:
       "Explore historical towns and cities, uncovering stories and traditions on our Heritage Walks.",
-    imgUrl: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/heritageCard.webp",
+    imgUrl: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/IMG_5212.JPG",
     link: "/heritage-walks",
   },
   {
     title: "Educational Tours",
     description:
       "Enhance learning with hands-on experiences and in-depth knowledge on our Educational Tours.",
-    imgUrl: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/edu.webp",
+    imgUrl: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-06%20at%2012.16.30.jpeg",
     link: "/educational-tours",
   },
   {

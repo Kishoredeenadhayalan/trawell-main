@@ -13,14 +13,15 @@ import { Button } from "@/components/ui/button";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 import { sendEnquiryRequest } from "@/lib/api";
 
 
 
 const metadata = {
-  title: "Enquire Now | Trawell India",
+  title: "Next Steps | Trawell India",
   description:
-    "Start your journey with Trawell India by filling out our enquiry form. Choose from a variety of tours and services and let us help you plan your perfect trip.",
+    "We welcome institutions and educators who believe education must go beyond classrooms. Let us build learning journeys where children not only learn, but reconnect with their roots.",
   url: "https://trawellindia.in/contactForm",
   image: "https://utfs.io/f/1e119bd8-ba4e-44ed-9086-b3d36380d42d-rri8sg.png",
 };
@@ -32,15 +33,20 @@ const ContactForm = () => {
     email: "",
     message: "",
     phone: "",
+    inquiryType: "Individual",
+    schoolName: "",
   });
   const [loading, setLoading] = useState(false);
-  //   const { toast } = useToast();
 
   const handleValuesChange =
     (key: keyof typeof values) =>
       (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        let value = e.target.value;
+        if (key === "phone") {
+          value = value.replace(/\D/g, "");
+        }
         setValues((prev) => {
-          return { ...prev, [key]: e.target.value };
+          return { ...prev, [key]: value };
         });
       };
 
@@ -49,7 +55,14 @@ const ContactForm = () => {
       return { ...prev, category: val };
     });
   };
-  const emailRegex = new RegExp(/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/);
+
+  const handleInquiryTypeSelect = (val: string) => {
+    setValues((prev) => {
+      return { ...prev, inquiryType: val };
+    });
+  };
+
+  const emailRegex = new RegExp(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i);
   const PHN_REGEX = /^(^[6-9]\d{9}$)/g;
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -61,20 +74,19 @@ const ContactForm = () => {
     } else if (!emailRegex.test(values.email)) {
       setLoading(false);
       return alert("Please enter a valid email address");
-    } else if (!PHN_REGEX.test(values.phone)) {
+      // Phone is optional now, but if filled check validity:
+    } else if (values.phone && !PHN_REGEX.test(values.phone)) {
       setLoading(false);
       return alert("Please enter a valid Phone No.");
-    }
-    else if (values.category === "Select a Trip") {
+    } else if (values.category === "Select a Trip") {
       setLoading(false);
-      return alert("Please select a trip");
+      return alert("Please select a service");
+    } else if (values.inquiryType === "Institution" && !values.schoolName) {
+      setLoading(false);
+      return alert("Please enter the Name of your School/Institution");
     } else {
       try {
         await sendEnquiryRequest(values);
-        // toast({
-        //   title: "Scheduled: Catch up",
-        //   description: "Friday, February 10, 2023 at 5:57 PM",
-        // });
         alert("Your request has been submitted successfully");
         setLoading(false);
       } catch (err) {
@@ -82,7 +94,6 @@ const ContactForm = () => {
         alert(`Something went wrong, please try again: ${err as Error}`);
       }
     }
-    console.log(values);
   };
 
   const CATEGORIES = [
@@ -100,110 +111,149 @@ const ContactForm = () => {
     "Archaeological Site Visits",
     "Other Services"
   ];
+
   return (
     <>
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:url" content={metadata.url} />
-        <meta property="og:image" content={metadata.image} />
       </Head>
-      <main className="min-h-screen bg-gray-50  w-full ">
-        <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[50px]">
+      <main className="min-h-screen bg-brand-soft w-full">
+        <section className="p-4 md:px-16 lg:max-w-6xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
           <Link
             href={"/"}
-            className="mx-auto flex items-center gap-2 text-base font-medium text-[#4c4f58] "
+            className="mb-8 flex items-center gap-2 text-base font-medium text-brand-dark hover:text-brand-accent transition-colors"
           >
-            <MoveLeft className="w-6 h-6 text-brand-accent " /> Back
+            <MoveLeft className="w-6 h-6" /> Back
           </Link>
-          <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
-            <h2 className=" select-text text-center text-[32px] font-medium text-[#23262f] md:text-[34px] lg:text-[40px]">
-              Explore the Wonders of Bharat with Trawell India - Enquire Now
+
+          <div className="mx-auto flex flex-col gap-4 text-center pb-[40px]">
+            <h2 className="select-text text-center text-[36px] font-bold text-brand-dark md:text-[42px] lg:text-[50px] font-serif">
+              Next Steps
             </h2>
-            <p className="text-[18px] text-[#4c4f58]">
-              We&apos;re here to assist you with any questions or information
-              you need. Whether you&apos;re seeking the perfect trail or an
-              exciting tour, we&apos;re ready to help. Fill out the form below,
-              and we&apos;ll get back to you shortly.
+            <p className="text-[18px] text-slate-700 max-w-4xl mx-auto leading-relaxed">
+              We welcome institutions and educators who believe education must go beyond classrooms. Let us build learning journeys where children not only learn, but reconnect with their roots.
             </p>
           </div>
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col w-full gap-4 p-4 border rounded font-outfit  border-white/10"
-          >
-            <h1 className="text-xl font-bold md:text-2xl">Enquiry Form</h1>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="name">
-                Your Name <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                onChange={handleValuesChange("name")}
-                required
-                type="text"
-                className="h-12"
-                placeholder="Enter your name"
-              />
-            </div>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="email">
-                Your Email <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                onChange={handleValuesChange("email")}
-                required
-                type="email"
-                className="h-12"
-                placeholder="Enter your email"
-              />
-            </div>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="start">
-                Mobile No. <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                onChange={handleValuesChange("phone")}
-                type="text"
-                maxLength={10}
-                required
-                className="h-12"
-                placeholder="Enter your Mobile No."
-              />
-            </div>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="category" className="mb-2">
-                Service <span className="text-red-500">*</span>
-              </Label>
-              <Select required onValueChange={handleCategorySelect}>
-                <SelectTrigger className="w-full h-12">
-                  <SelectValue placeholder="Select a Trip" />
-                </SelectTrigger>
-                <SelectContent>
-                  {CATEGORIES.map((item, idx) => (
-                    <SelectItem key={idx} value={item}>
-                      {item}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mt-8">
+            {/* Left Graphic - Website Logo */}
+            <div className="hidden lg:flex justify-center items-center relative w-full h-[400px]">
+              <div className="relative w-96 h-96 flex justify-center items-center">
+                <Image
+                  unoptimized
+                  priority
+                  src="/images/TraWell_Primary - multicolour.png"
+                  alt="Trawell Logo"
+                  width={450}
+                  height={450}
+                  className="w-full h-auto object-contain transition-all duration-300 hover:scale-105"
+                />
+              </div>
             </div>
 
-            <div className="grid w-full gap-1.5">
-              <Label htmlFor="message">Message</Label>
-              <Textarea
-                onChange={handleValuesChange("message")}
-                placeholder="Got any special requests?"
-                id="message"
-              />
-            </div>
-            <Button
-              type="submit"
-              className="h-12 w-full rounded-lg text-black bg-brand-accent py-5 px-16 transition-all duration-300 hover:bg-brand-accent/80 "
+            {/* Right Form */}
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col w-full gap-5 p-8 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-brand-accent/20"
             >
-              {loading ? "Loading..." : "Request"}
-            </Button>
-          </form>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="name" className="text-brand-dark font-medium">Full Name <span className="text-red-500">*</span></Label>
+                <Input
+                  onChange={handleValuesChange("name")}
+                  value={values.name}
+                  required
+                  type="text"
+                  className="h-12 border-slate-300 focus:border-brand-accent focus:ring-brand-accent rounded-xl"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="email" className="text-brand-dark font-medium">Email ID <span className="text-red-500">*</span></Label>
+                <Input
+                  onChange={handleValuesChange("email")}
+                  value={values.email}
+                  required
+                  type="email"
+                  className="h-12 border-slate-300 focus:border-brand-accent focus:ring-brand-accent rounded-xl"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="phone" className="text-brand-dark font-medium">Mobile No.</Label>
+                <Input
+                  onChange={handleValuesChange("phone")}
+                  value={values.phone}
+                  type="text"
+                  maxLength={10}
+                  className="h-12 border-slate-300 focus:border-brand-accent focus:ring-brand-accent rounded-xl"
+                  placeholder="Enter your Mobile No."
+                />
+              </div>
+
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="inquiryType" className="text-brand-dark font-medium">I am an <span className="text-red-500">*</span></Label>
+                <Select required defaultValue="Individual" onValueChange={handleInquiryTypeSelect}>
+                  <SelectTrigger className="w-full h-12 border-slate-300 focus:border-brand-accent focus:ring-brand-accent rounded-xl">
+                    <SelectValue placeholder="Individual or Institution" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Individual">Individual</SelectItem>
+                    <SelectItem value="Institution">Institution / Educator</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {values.inquiryType === "Institution" && (
+                <div className="grid w-full items-center gap-1.5 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <Label htmlFor="schoolName" className="text-brand-dark font-medium">Name of School / Institution <span className="text-red-500">*</span></Label>
+                  <Input
+                    onChange={handleValuesChange("schoolName")}
+                    value={values.schoolName}
+                    required
+                    type="text"
+                    className="h-12 border-slate-300 focus:border-brand-accent focus:ring-brand-accent rounded-xl"
+                    placeholder="Enter the name of your school"
+                  />
+                </div>
+              )}
+
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="category" className="text-brand-dark font-medium">Services <span className="text-red-500">*</span></Label>
+                <Select required onValueChange={handleCategorySelect}>
+                  <SelectTrigger className="w-full h-12 border-slate-300 focus:border-brand-accent focus:ring-brand-accent rounded-xl">
+                    <SelectValue placeholder="Select a Service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {CATEGORIES.map((item, idx) => (
+                      <SelectItem key={idx} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="grid w-full gap-1.5">
+                <Label htmlFor="message" className="text-brand-dark font-medium">Message (Optional)</Label>
+                <Textarea
+                  onChange={handleValuesChange("message")}
+                  className="border-slate-300 focus:border-brand-accent focus:ring-brand-accent min-h-[100px] rounded-xl"
+                  placeholder="Got any special requests?"
+                  id="message"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="mt-4 h-12 w-full rounded-xl text-white bg-brand-dark py-5 px-16 text-lg font-medium transition-all duration-300 hover:bg-brand-dark/90 hover:shadow-lg"
+              >
+                {loading ? "Submitting..." : "Submit"}
+              </Button>
+            </form>
+          </div>
         </section>
       </main>
     </>

@@ -30,7 +30,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
-                    className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0F172A]"
+                    className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-brand-dark"
                 >
                     {/* Logo Container with 3D Pulse */}
                     <motion.div
@@ -71,7 +71,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: 250, opacity: 1 }}
                         transition={{ duration: 2, delay: 0.3, ease: "easeInOut" }}
-                        className="mt-12 h-1 bg-brand-accent rounded-full shadow-[0_0_15px_#FF6B6B]"
+                        className="mt-12 h-1 bg-brand-accent rounded-full shadow-[0_0_15px_#D4A300]"
                     />
                 </motion.div>
             )}

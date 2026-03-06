@@ -10,7 +10,7 @@ const metadata = {
   description:
     "Join Trawell India's Heritage Walks to immerse yourself in the rich cultural tapestry of historic towns and cities. Discover the architecture, traditions, and stories that define our heritage.",
   url: "https://trawellindia.in/heritage-walks",
-  image: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/heritage-in.webp",
+  image: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/IMG_5212.JPG",
 };
 
 const HeritagePage = () => {
@@ -28,7 +28,7 @@ const HeritagePage = () => {
       <div
         className="relative bg-cover bg-center h-screen"
         style={{
-          backgroundImage: `url("https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/heritage-in.webp")`,
+          backgroundImage: `url("https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/IMG_5212.JPG")`,
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -64,23 +64,6 @@ const HeritagePage = () => {
           the cultural treasures that define our identity. Join us on a Heritage
           Walk and become a part of the living story of our heritage.
         </p>
-      </div>
-      <div className="w-full py-12 md:px-32 px-8 flex flex-col gap-4 justify-between items-center">
-        <h1>
-          <span className="text-2xl md:text-3xl lg:text-5xl font-semibold text-brand-dark tracking-wide mb-8">
-            Upcoming Events
-          </span>
-        </h1>
-        <div>
-          <Link href={"https://forms.gle/yexwkhAETPdeogiW6"} target="_blank">
-            <Image
-              src="https://k6e1njmrbw.ufs.sh/f/ea0DhERF0poLulLPOVLANJ6DZYrchnP5XIS8472GU30mlVjt"
-              width={500}
-              height={300}
-              alt="events"
-            />
-          </Link>
-        </div>
       </div>
       <Footer />
     </>

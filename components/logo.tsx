@@ -16,7 +16,7 @@ export default function InstitutionsPage() {
   ];
 
   return (
-    <section className="w-full bg-white py-6 md:py-8">
+    <section className="w-full bg-brand-soft py-6 md:py-8">
       {/* Title */}
       <h2 className="text-center text-lg md:text-xl font-medium text-slate-700 mb-4">
         Trusted By Institutions

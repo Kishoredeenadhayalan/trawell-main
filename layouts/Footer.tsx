@@ -5,9 +5,9 @@ import { Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f4e8d0]">
-      <div className="bg-gradient-to-r from-[#f4e8d0]/20 to-[#f4e8d0] py-8 px-6 relative"> {/* Sand gradient */}
-        <div className="mx-auto max-w-6xl flex flex-col md:flex-row flex-wrap md:flex-nowrap items-start justify-between gap-8 md:gap-12 text-[#333] text-sm">
+    <footer className="bg-brand-soft">
+      <div className="bg-gradient-to-r from-brand-accent/5 to-brand-soft py-8 px-6 relative"> {/* Warm gradient */}
+        <div className="mx-auto max-w-6xl flex flex-col md:flex-row flex-wrap md:flex-nowrap items-start justify-between gap-8 md:gap-12 text-slate-800 text-sm">
 
           {/* LOGO + EXPLORE */}
           <div className="flex items-start gap-4 w-full md:w-1/4 flex-shrink-0">
@@ -52,8 +52,8 @@ const Footer = () => {
                 <Mail size={18} className="text-[#333]" />
               </Link>
             </div>
-            <div className="text-xs text-left md:text-right opacity-80">contact@trawell.in</div>
-            <div className="text-xs text-left md:text-right opacity-80">Coimbatore: 964105</div>
+            <div className="text-xs text-left md:text-right opacity-80">trawellindia2022@gmail.com</div>
+            <div className="text-xs text-left md:text-right opacity-80">+91 8667737189</div>
             <div className="text-lg text-left md:text-right font-bold mt-1">Follow us</div>
           </div>
         </div>

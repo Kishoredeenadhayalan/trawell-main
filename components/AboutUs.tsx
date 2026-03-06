@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-[60px] md:py-[90px] lg:py-[110px] overflow-hidden bg-white"
+      className="relative py-[60px] md:py-[90px] lg:py-[110px] overflow-hidden bg-brand-soft"
     >
       {/* 3D Floating Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

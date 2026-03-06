@@ -12,7 +12,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     if (
       !data.email ||
       !data.name ||
-      !data.message ||
       !data.category
     ) {
       console.log(req.body);
@@ -22,7 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       await transporter.sendMail({
         ...mailOptions,
         subject: `Enquiry Request for ${data.category}`,
-        text: `You have a New Enquiry from Customer\nName of the Customer: \t${data.name}\nEmail: \t${data.email}\nService Requested: \t${data.category}\n\nMessage: \t${data.message}\n\nPlease contact the customer through the above email as soon as possible.\nThank You Nandri.`,
+        text: `You have a New Enquiry from Customer\nName: \t${data.name}\nEmail: \t${data.email}\nPhone: \t${data.phone || 'N/A'}\nType: \t${data.inquiryType || 'N/A'}\nInstitution: \t${data.schoolName || 'N/A'}\nService Requested: \t${data.category}\n\nMessage: \t${data.message || 'N/A'}\n\nPlease contact the customer as soon as possible.\nThank You Nandri.`,
       });
       return res.status(200).json({ message: "Success" });
     } catch (err) {

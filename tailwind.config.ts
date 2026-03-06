@@ -53,10 +53,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "brand-dark": "#475569", // Medium Slate Blue
-        "brand-accent": "#B76E79", // Rose Gold
-        "brand-warm": "#FF8E53", // Sunset Orange
-        "brand-soft": "#F8F9FA", // Pearl White
+        "brand-dark": "#4A0E17", // Deep Heritage Maroon
+        "brand-accent": "#D4A300", // Heritage Gold
+        "brand-warm": "#A31E22", // Vibrant Heritage Red
+        "brand-soft": "#FDFBF7", // Warm Pearl
       },
       borderRadius: {
         lg: "var(--radius)",

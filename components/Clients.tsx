@@ -32,7 +32,7 @@ const Clients = () => {
     "https://media.istockphoto.com/id/511119924/photo/tea-plantations-and-river-in-hills-kerala-india.jpg?s=2048x2048&w=is&k=20&c=DHGXYX9Ff21baUwbpwv_7lyAKi-iPI8IVl2nmBVG_nA=",
   ];
   return (
-    <section className=" w-full bg-white  h-fit">
+    <section className=" w-full bg-brand-soft  h-fit">
       <div className="my-10">
         <h2 className="text-3xl lg:text-5xl font-bold text-center mt-4 text-brand-dark">
           Our Clients

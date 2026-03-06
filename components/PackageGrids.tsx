@@ -4,41 +4,21 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 
 const PackageCard = ({ card, handleCardClick, hoveredCard, setHoveredCard }: any) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-150, 150], [15, -15]);
-  const rotateY = useTransform(x, [-150, 150], [-15, 15]);
-
-  const springConfig = { damping: 20, stiffness: 200 };
-  const springRotateX = useSpring(rotateX, springConfig);
-  const springRotateY = useSpring(rotateY, springConfig);
-
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set(event.clientX - centerX);
-    y.set(event.clientY - centerY);
     setHoveredCard(card.link);
   };
 
   const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
     setHoveredCard(null);
   };
 
   return (
-    <div style={{ perspective: "1500px" }}>
-      <motion.div
+    <div>
+      <div
         onClick={() => handleCardClick(card.link)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          rotateX: springRotateX,
-          rotateY: springRotateY,
-          transformStyle: "preserve-3d",
           boxShadow:
             hoveredCard === card.link
               ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
@@ -114,7 +94,7 @@ const PackageCard = ({ card, handleCardClick, hoveredCard, setHoveredCard }: any
         <div
           className={`absolute inset-0 rounded-2xl border-2 border-brand-accent transition-opacity duration-300 pointer-events-none ${hoveredCard === card.link ? "opacity-100" : "opacity-0"}`}
         />
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -217,12 +197,12 @@ const PackageGridsRedesign = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 relative bg-slate-50">
+    <section className="py-16 md:py-24 relative bg-brand-soft">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-slate-200 text-slate-800 rounded-full text-sm font-semibold mb-4 tracking-wide border border-slate-300 shadow-sm">
+          <span className="inline-block px-4 py-2 bg-brand-accent text-brand-dark rounded-full text-sm font-semibold mb-4 tracking-wide shadow-[0_4px_12px_rgba(212,163,0,0.3)]">
             EXPLORE HERITAGE
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-6 drop-shadow-sm">

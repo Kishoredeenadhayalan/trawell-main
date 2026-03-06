@@ -92,7 +92,7 @@ const Hero = () => {
 
           {/* Fade-in subtitle */}
           <motion.p
-            className="text-lg md:text-xl font-light text-[#E7C987] max-w-xl mb-8 leading-relaxed drop-shadow-[0_0_4px_rgba(0,0,0,0.5)]"
+            className="text-lg md:text-xl font-light text-brand-accent max-w-xl mb-8 leading-relaxed drop-shadow-[0_0_4px_rgba(0,0,0,0.5)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.4, duration: 0.8 }}
@@ -109,7 +109,7 @@ const Hero = () => {
           >
             <Button
               asChild
-              className="py-4 px-8 bg-[#D4A300] text-black font-semibold text-md border-2 border-[#3B1F0B] shadow-lg hover:bg-[#bf8f00] hover:shadow-[0_0_15px_rgba(212,163,0,0.4)] transition-all duration=300"
+              className="py-4 px-8 bg-brand-accent text-brand-dark font-semibold text-md border-2 border-brand-dark shadow-[0_0_15px_rgba(212,163,0,0.6)] hover:bg-yellow-500 hover:text-black transition-all duration-300"
             >
               <Link href="/contactForm">Explore More →</Link>
             </Button>

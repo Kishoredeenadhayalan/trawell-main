@@ -1,33 +1,6 @@
-import { useEffect, useState } from "react";
+import CountUp from "react-countup";
+import VisibilitySensor from "react-visibility-sensor";
 import { motion } from "framer-motion";
-const CountUp = ({
-  end,
-  duration = 2000,
-}: {
-  end: number;
-  duration?: number;
-}) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const increment = end / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [end, duration]);
-
-  return <span>{count.toLocaleString()}</span>;
-};
 
 export default function ImpactPage() {
   return (
@@ -61,8 +34,15 @@ export default function ImpactPage() {
 
         {/* Stat 1 */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] transition-all duration-300 transform hover:-translate-y-2">
-          <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm">
-            <CountUp end={500} />+
+          <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm flex justify-center items-center">
+            <VisibilitySensor partialVisibility offset={{ bottom: 100 }}>
+              {({ isVisible }: { isVisible: boolean }) => (
+                <div className="h-12 flex items-center">
+                  {isVisible ? <CountUp end={500} duration={2.5} /> : "0"}
+                  <span>+</span>
+                </div>
+              )}
+            </VisibilitySensor>
           </div>
           <p className="mt-3 text-sm md:text-base text-slate-300 font-medium">
             Curated Journeys
@@ -71,8 +51,15 @@ export default function ImpactPage() {
 
         {/* Stat 2 */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] transition-all duration-300 transform hover:-translate-y-2">
-          <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm">
-            <CountUp end={50} />+
+          <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm flex justify-center items-center">
+            <VisibilitySensor partialVisibility offset={{ bottom: 100 }}>
+              {({ isVisible }: { isVisible: boolean }) => (
+                <div className="h-12 flex items-center">
+                  {isVisible ? <CountUp end={50} duration={2.5} /> : "0"}
+                  <span>+</span>
+                </div>
+              )}
+            </VisibilitySensor>
           </div>
           <p className="mt-3 text-sm md:text-base text-slate-300 font-medium">
             Heritage-Rich Destinations
@@ -81,8 +68,15 @@ export default function ImpactPage() {
 
         {/* Stat 3 */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] transition-all duration-300 transform hover:-translate-y-2">
-          <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm">
-            <CountUp end={15000} />+
+          <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm flex justify-center items-center">
+            <VisibilitySensor partialVisibility offset={{ bottom: 100 }}>
+              {({ isVisible }: { isVisible: boolean }) => (
+                <div className="h-12 flex items-center">
+                  {isVisible ? <CountUp end={15000} duration={2.5} separator="," /> : "0"}
+                  <span>+</span>
+                </div>
+              )}
+            </VisibilitySensor>
           </div>
           <p className="mt-3 text-sm md:text-base text-slate-300 font-medium">
             Young Minds Inspired (Last 2 Years)
