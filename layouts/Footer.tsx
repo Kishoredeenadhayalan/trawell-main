@@ -28,11 +28,11 @@ const Footer = () => {
 
           {/* TRAVEL SERVICES */}
           <div className="flex flex-col gap-1 w-full sm:w-1/2 md:w-1/4 pt-1">
-            <span className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2">TRAVEL SERVICES</span>
-            <div className="hover:text-[#666] py-0.5">India Tours</div>
-            <div className="hover:text-[#666] py-0.5">Custom Packages</div>
-            <div className="hover:text-[#666] py-0.5">Flight Bookings</div>
-            <div className="hover:text-[#666] py-0.5">24/7 Support</div>
+            <span className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2">OFFERINGS</span>
+            <Link href="/educational-tours" className="hover:text-[#666] py-0.5 block">Educational Tours </Link>
+            <Link href="/UpcomingEvents" className="hover:text-[#666] py-0.5 block">Camps & Work Shops</Link>
+            <Link href="/contactForm" className="hover:text-[#666] py-0.5 block">Courses on IKS </Link>
+            <Link href="/contactForm" className="hover:text-[#666] py-0.5 block">Temple Documentation</Link>
           </div>
 
           {/* LEGAL */}

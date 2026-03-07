@@ -17,10 +17,10 @@ const advisoryMembers: AdvisoryMember[] = [
   },
   {
     name: "Ananth Seshadri",
-    role: "Finance Expert",
+    role: "Cultural Researcher & Educator in Bharatiya Civilization",
     image:
       "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/WhatsApp%20Image%202026-02-01%20at%2014.53.50.jpeg",
-    bio: "Seasoned finance professional specializing in nonprofit funding and cultural enterprise growth strategies.",
+    bio: "Ananth is an engineer and strategy professional working in the areas of organisational excellence, supply chain, and renewable energy in Bharat. He has extensive international experience and has spent several years outside the country, helping turn around acquired companies. Ananth holds an MBA from the University of Chicago and an MS from the University of Illinois, and has lived and worked in the United States for over a decade. Beyond his professional work, he is deeply passionate about researching, writing, and teaching Bharatiya history, culture, tradition, and thought. His years abroad ultimately strengthened his conviction that his true place and purpose lie in Bharat.",
   },
   {
     name: "Sriram Vijayaragavan",
@@ -30,13 +30,13 @@ const advisoryMembers: AdvisoryMember[] = [
   {
     name: "Dr. Ramadevi",
     role: "Cultural Historian",
-    bio: "Renowned South Indian heritage historian with publications on ancient architecture and temple traditions.",
+    bio: "Dr. Ramadevi Sekhar is an academician, researcher, and cultural scholar serving as Director of the Centre for Excellence in Arts and Culture at Shri Shankarlal Sundarbai Shasun Jain College for Women, Chennai. She holds a PhD in Sanskrit Literature from the University of Madras and is a National Gurukul Fellow trained under R. Nagaswamy. Her work focuses on Indian culture, Sanskrit literature, archaeology, and civilizational studies. She has produced heritage documentaries, published widely, organized government-funded conferences, and delivered lectures across institutions. Her research and outreach aim to make India’s rich heritage accessible through scholarship, heritage tours, and experiential learning initiatives.",
   },
   {
-    name: "Sandeep",
+    name: "Dr.Sandeep",
     role: "Marketing Specialist",
     image:"https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/cc1cf894-652b-450e-8356-21e41dfe1f77.JPG",
-    bio: "Digital marketing expert driving tourism brand engagement through innovative cultural campaigns.",
+    bio: "Dr. Sandeep Kumar P holds a PhD in Applied Economics and Business Management and currently serves as the Director of the Centre for South Indian Studies. His areas of interest include the Indian economy, socio-cultural history of India, colonial studies, national security, and cultural studies. He has served as an alternate member of the ICCM under the Ministry of Health, Government of India, and as a member of the National Monitoring Committee for the Education of Scheduled Castes, Scheduled Tribes, and Persons with Disabilities, as well as the National Monitoring Committee for Minority Education under the Ministry of HRD. He regularly writes on socio-political issues and participates in television debates on national affairs.",
   },
 ];
 

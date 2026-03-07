@@ -20,6 +20,7 @@ const Navbar = ({ darkText = false }: { darkText?: boolean }) => {
     { title: "About", link: "/about" },
     { title: "Tours", link: "/#services" },
     { title: "Gallery", link: "/gallery" },
+    { title: "Podcast & Talks", link: "/podcast-and-talks" },
     { title: "Contact Us", link: "/#contact" },
     { title: "Upcoming Events", link: "/UpcomingEvents" },
   ];
