@@ -51,11 +51,11 @@ const Hero = () => {
       )}
 
       {/* Content */}
-      <div className="relative flex items-center h-full">
-        <div className="container mx-auto px-6 lg:px-12 xl:px-24 mb-32">
+      <div className="relative flex items-center justify-center h-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-24 mt-24 sm:mt-32 md:mt-40 mb-12 sm:mb-24 md:mb-32 pt-16 sm:pt-24 md:pt-32">
 
           {/* ✨ Typewriter heading 1 */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider mb-4 md:mb-4 whitespace-normal sm:whitespace-nowrap break-words">
+          <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider mb-2 sm:mb-3 md:mb-4 break-words leading-tight">
             {typewriterText.split("").map((char, index) => (
               <motion.span
                 key={index}
@@ -73,7 +73,7 @@ const Hero = () => {
           </h1>
 
           {/* ✨ Typewriter heading 2 */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider mb-6 whitespace-normal sm:whitespace-nowrap break-words">
+          <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-bold text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.5)] tracking-wider mb-3 sm:mb-4 md:mb-6 break-words leading-tight">
             {typewriterText2.split("").map((char, index) => (
               <motion.span
                 key={index}
@@ -92,7 +92,7 @@ const Hero = () => {
 
           {/* Fade-in subtitle */}
           <motion.p
-            className="text-lg md:text-xl font-light text-brand-accent max-w-xl mb-8 leading-relaxed drop-shadow-[0_0_4px_rgba(0,0,0,0.5)]"
+            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-light text-brand-accent max-w-full sm:max-w-2xl mb-4 sm:mb-6 md:mb-8 leading-relaxed drop-shadow-[0_0_4px_rgba(0,0,0,0.5)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.4, duration: 0.8 }}
@@ -109,7 +109,7 @@ const Hero = () => {
           >
             <Button
               asChild
-              className="py-4 px-8 bg-brand-accent text-brand-dark font-semibold text-md border-2 border-brand-dark shadow-[0_0_15px_rgba(212,163,0,0.6)] hover:bg-yellow-500 hover:text-black transition-all duration-300"
+              className="py-2 px-4 xs:py-3 xs:px-6 sm:py-4 sm:px-8 bg-brand-accent text-brand-dark font-semibold text-xs xs:text-sm sm:text-md border-2 border-brand-dark shadow-[0_0_15px_rgba(212,163,0,0.6)] hover:bg-yellow-500 hover:text-black transition-all duration-300"
             >
               <Link href="/contactForm">Explore More →</Link>
             </Button>
