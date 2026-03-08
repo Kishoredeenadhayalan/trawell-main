@@ -62,7 +62,7 @@ const Navbar = ({ darkText = false }: { darkText?: boolean }) => {
       </Link>
 
       {/* NAV LINKS (DESKTOP) */}
-      <div className="hidden lg:flex gap-8 items-center">
+      <div className="hidden xl:flex gap-8 items-center">
         {NAVBAR_DATA.map((data, idx) => (
           <Link
             key={idx}
@@ -78,7 +78,7 @@ const Navbar = ({ darkText = false }: { darkText?: boolean }) => {
       </div>
 
       {/* MOBILE MENU */}
-      <div className="lg:hidden">
+      <div className="xl:hidden">
         <Sheet open={open} onOpenChange={handleToggle}>
           <SheetTrigger aria-label="Menu">
             {/* ICON CHANGE ON SCROLL */}

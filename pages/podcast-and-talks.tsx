@@ -22,7 +22,7 @@ const PodcastPage = () => {
                         <MoveLeft className="w-6 h-6" /> Back
                     </Link>
 
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-12">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">
                             Podcast & Talks
                         </h1>
@@ -30,6 +30,28 @@ const PodcastPage = () => {
                         <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                             Stay tuned! We are curating a series of insightful discussions, expert talks, and immersive podcasts exploring the depths of Bharat's civilizational heritage.
                         </p>
+                    </div>
+
+                    {/* Featured Video Section */}
+                    <div className="mb-20">
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="p-2 bg-brand-accent rounded-lg">
+                                <Video className="w-6 h-6 text-brand-dark" />
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-serif font-bold text-brand-dark">
+                                Featured Talk: Cultural Heritage of India
+                            </h2>
+                        </div>
+                        <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                            <iframe
+                                className="absolute top-0 left-0 w-full h-full"
+                                src="https://www.youtube.com/embed/m8pdQW84j4U"
+                                title="Cultural Heritage of India"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">

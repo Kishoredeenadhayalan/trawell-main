@@ -38,7 +38,7 @@ function WhyUs() {
   ];
 
   return (
-    <section className="py-[50px] md:py-[50px] bg-brand-accent text-brand-dark" id="WhyUs">
+    <section className="py-[50px] md:py-[50px] bg-brand-accent text-brand-dark scroll-mt-24" id="WhyUs">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
         <div className="mx-auto flex flex-col gap-4 max-w-xl text-center">
           <h2 className="text-3xl lg:text-5xl font-bold text-brand-dark">

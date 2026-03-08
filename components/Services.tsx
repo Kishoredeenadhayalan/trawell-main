@@ -35,7 +35,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="relative py-[60px] md:py-[80px] overflow-hidden bg-brand-dark shadow-sm"
+      className="relative py-[60px] md:py-[80px] overflow-hidden bg-brand-dark shadow-sm scroll-mt-24"
     >
       <div className="relative mx-auto max-w-screen-xl px-4 py-6 sm:py-12 lg:py-16">
         {/* Heading animation */}

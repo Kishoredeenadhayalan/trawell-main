@@ -23,14 +23,14 @@ const About = () => {
         />
       </div>
 
-      <div className="relative w-full flex flex-col lg:flex-row lg:max-w-7xl mx-auto gap-12 p-4 md:px-16 z-10">
+      <div className="relative w-full flex flex-col lg:flex-row lg:max-w-7xl mx-auto gap-12 px-6 md:px-16 z-10 scroll-mt-24">
         {/* LEFT CONTENT */}
-        <div className="flex flex-col gap-4 justify-center lg:w-1/2">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark tracking-wide drop-shadow-md">
+        <div className="flex flex-col gap-6 justify-center lg:w-1/2">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark tracking-wide drop-shadow-md leading-tight">
             Experience Begins
           </h1>
 
-          <p className="text-lg text-slate-600 leading-relaxed text-justify">
+          <p className="text-lg text-slate-600 leading-relaxed text-justify md:text-left">
             Bharat is a repository of a vibrant, living, and thriving culture.
             Punctuated by towering structures, rustic forts, coastal landscapes
             and stately palaces; the southern lands are a feast for the eyes and

@@ -35,7 +35,7 @@ const advisoryMembers: AdvisoryMember[] = [
   {
     name: "Dr.Sandeep",
     role: "Marketing Specialist",
-    image:"https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/cc1cf894-652b-450e-8356-21e41dfe1f77.JPG",
+    image: "https://7llynlmlgfrzlkfk.public.blob.vercel-storage.com/cc1cf894-652b-450e-8356-21e41dfe1f77.JPG",
     bio: "Dr. Sandeep Kumar P holds a PhD in Applied Economics and Business Management and currently serves as the Director of the Centre for South Indian Studies. His areas of interest include the Indian economy, socio-cultural history of India, colonial studies, national security, and cultural studies. He has served as an alternate member of the ICCM under the Ministry of Health, Government of India, and as a member of the National Monitoring Committee for the Education of Scheduled Castes, Scheduled Tribes, and Persons with Disabilities, as well as the National Monitoring Committee for Minority Education under the Ministry of HRD. He regularly writes on socio-political issues and participates in television debates on national affairs.",
   },
 ];
